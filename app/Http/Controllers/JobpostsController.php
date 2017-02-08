@@ -37,12 +37,35 @@ class JobpostsController extends Controller
     {
         //validate the data
              $this->validate($request, array(
-                   
+                'job_title' => 'required|max:255',
+                'job_type' => 'required',
+                'designation' => 'required|max:255',
+                'qualification' => 'required',
+                'job_location' => 'required',
+                'experience' => 'required',
+                'skills' => 'required',
+                'job_description' => 'required',
+                'job_condition' => 'required',
+                'salary' => 'required',
+                'last_date_for_application' => 'required',
+                'number_of_vacanies' => 'required', 
+
                 ));
         //store the date
           $jobposts = new jobposts;
 
-          $jobposts->job = $request->jobtitle;
+          $jobposts->job_title = $request->job_title;
+          $jobposts->job_type = $request->job_type;
+          $jobposts->designation = $request->designation;
+          $jobposts->qualification = $request->qualification;
+          $jobposts->job_location = $request->job_location;
+          $jobposts->experience = $request->experience;
+          $jobposts->skills = $request->skills;
+          $jobposts->job_description = $request->job_description;
+          $jobposts->job_condition = $request->job_condition;
+          $jobposts->salary = $request->salary;
+          $jobposts->last_date_for_application = $request->last_date_for_application;
+          $jobposts->number_of_vacanies = $request->number_of_vacanies;
         //redirect to another page
           return redirect()->route('post.show',$jobposts->id);
     }
