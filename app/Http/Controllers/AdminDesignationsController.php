@@ -5,16 +5,16 @@
 	use DB;
 	use CRUDBooster;
 
-	class AdminJobsController extends \crocodicstudio\crudbooster\controllers\CBController {
+	class AdminDesignationsController extends \crocodicstudio\crudbooster\controllers\CBController {
 
 	    public function cbInit() {
 
 			# START CONFIGURATION DO NOT REMOVE THIS LINE
-			$this->title_field = "job_title";
+			$this->title_field = "name";
 			$this->limit = "20";
 			$this->orderby = "id,desc";
 			$this->global_privilege = false;
-			$this->button_table_action = true;
+			$this->button_table_action = false;
 			$this->button_action_style = "button_icon";
 			$this->button_add = true;
 			$this->button_edit = true;
@@ -22,28 +22,15 @@
 			$this->button_detail = true;
 			$this->button_show = true;
 			$this->button_filter = true;
-			$this->button_import = true;
-			$this->button_export = true;
-			$this->table = "jobpost";
+			$this->button_import = false;
+			$this->button_export = false;
+			$this->table = "designations";
 			# END CONFIGURATION DO NOT REMOVE THIS LINE
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"User Id","name"=>"user_id","join"=>"recruiters,id"];
-			$this->col[] = ["label"=>"Created At","name"=>"created_at"];
-			$this->col[] = ["label"=>"Updated At","name"=>"updated_at"];
-			$this->col[] = ["label"=>"Job Title","name"=>"job_title"];
-			$this->col[] = ["label"=>"Job Type","name"=>"job_type"];
-			$this->col[] = ["label"=>"Designation","name"=>"designation"];
-			$this->col[] = ["label"=>"Qualification","name"=>"qualification"];
-			$this->col[] = ["label"=>"Job Location","name"=>"job_location"];
-			$this->col[] = ["label"=>"Experience","name"=>"experience"];
-			$this->col[] = ["label"=>"Skills","name"=>"skills"];
-			$this->col[] = ["label"=>"Job Description","name"=>"job_description"];
-			$this->col[] = ["label"=>"Job Condition","name"=>"job_condition"];
-			$this->col[] = ["label"=>"Salary","name"=>"salary"];
-			$this->col[] = ["label"=>"Last Date_for_application","name"=>"last_date_for_application"];
-			$this->col[] = ["label"=>"Number Of_vacanies","name"=>"number_of_vacanies"];
+			$this->col[] = ["label"=>"Id","name"=>"id"];
+			$this->col[] = ["label"=>"Name","name"=>"name","join"=>"jobpost,designation"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
@@ -51,143 +38,13 @@
 			$this->form[] = array (
   'style' => '',
   'help' => '',
-  'placeholder' => 'Enter Job Type',
+  'placeholder' => 'You can only enter the letter only',
   'readonly' => '',
   'disabled' => '',
-  'label' => 'Job Title',
-  'name' => 'job_title',
+  'label' => 'Name',
+  'name' => 'name',
   'type' => 'text',
-  'validation' => 'required|min:3|max:255',
-  'width' => 'col-sm-10',
-);
-			$this->form[] = array (
-  'dataenum' => 'Full Time;Part Time;Internship',
-  'style' => '',
-  'help' => '',
-  'label' => 'Job Type',
-  'name' => 'job_type',
-  'type' => 'radio',
-  'validation' => 'required|min:3|max:255',
-  'width' => 'col-sm-10',
-);
-			$this->form[] = array (
-  'style' => '',
-  'help' => '',
-  'placeholder' => '',
-  'readonly' => '',
-  'disabled' => '',
-  'label' => 'Designation',
-  'name' => 'designation',
-  'type' => 'text',
-  'validation' => 'required|min:3|max:255',
-  'width' => 'col-sm-10',
-);
-			$this->form[] = array (
-  'style' => '',
-  'help' => '',
-  'placeholder' => '',
-  'readonly' => '',
-  'disabled' => '',
-  'label' => 'Qualification',
-  'name' => 'qualification',
-  'type' => 'text',
-  'validation' => 'required|min:3|max:255',
-  'width' => 'col-sm-10',
-);
-			$this->form[] = array (
-  'style' => '',
-  'help' => '',
-  'placeholder' => '',
-  'readonly' => '',
-  'disabled' => '',
-  'label' => 'Job Location',
-  'name' => 'job_location',
-  'type' => 'text',
-  'validation' => 'required|min:3|max:255',
-  'width' => 'col-sm-10',
-);
-			$this->form[] = array (
-  'style' => '',
-  'help' => '',
-  'placeholder' => '',
-  'readonly' => '',
-  'disabled' => '',
-  'label' => 'Experience',
-  'name' => 'experience',
-  'type' => 'text',
-  'validation' => 'required|min:3|max:255',
-  'width' => 'col-sm-10',
-);
-			$this->form[] = array (
-  'style' => '',
-  'help' => '',
-  'placeholder' => '',
-  'readonly' => '',
-  'disabled' => '',
-  'label' => 'Skills',
-  'name' => 'skills',
-  'type' => 'text',
-  'validation' => 'required|min:3|max:255',
-  'width' => 'col-sm-10',
-);
-			$this->form[] = array (
-  'style' => '',
-  'help' => '',
-  'placeholder' => '',
-  'readonly' => '',
-  'disabled' => '',
-  'label' => 'Job Description',
-  'name' => 'job_description',
-  'type' => 'textarea',
-  'validation' => 'required|min:3|max:255',
-  'width' => 'col-sm-10',
-);
-			$this->form[] = array (
-  'style' => '',
-  'help' => '',
-  'placeholder' => '',
-  'readonly' => '',
-  'disabled' => '',
-  'label' => 'Job Condition',
-  'name' => 'job_condition',
-  'type' => 'textarea',
-  'validation' => 'required|min:3|max:255',
-  'width' => 'col-sm-10',
-);
-			$this->form[] = array (
-  'style' => '',
-  'help' => '',
-  'placeholder' => '',
-  'readonly' => '',
-  'disabled' => '',
-  'label' => 'Salary',
-  'name' => 'salary',
-  'type' => 'text',
-  'validation' => 'required|min:3|max:255',
-  'width' => 'col-sm-10',
-);
-			$this->form[] = array (
-  'style' => '',
-  'help' => '',
-  'placeholder' => '',
-  'readonly' => '',
-  'disabled' => '',
-  'label' => 'Last Date For Application',
-  'name' => 'last_date_for_application',
-  'type' => 'date',
-  'validation' => 'required|min:3|max:255',
-  'width' => 'col-sm-10',
-);
-			$this->form[] = array (
-  'style' => '',
-  'help' => '',
-  'placeholder' => '',
-  'readonly' => '',
-  'disabled' => '',
-  'label' => 'Number Of Vacanies',
-  'name' => 'number_of_vacanies',
-  'type' => 'text',
-  'validation' => 'required|min:3|max:255',
+  'validation' => 'required|string|min:3|max:70',
   'width' => 'col-sm-10',
 );
 			# END FORM DO NOT REMOVE THIS LINE

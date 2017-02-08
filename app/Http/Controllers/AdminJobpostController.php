@@ -5,7 +5,7 @@
 	use DB;
 	use CRUDBooster;
 
-	class AdminJobsController extends \crocodicstudio\crudbooster\controllers\CBController {
+	class AdminJobpostController extends \crocodicstudio\crudbooster\controllers\CBController {
 
 	    public function cbInit() {
 
@@ -29,12 +29,10 @@
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"User Id","name"=>"user_id","join"=>"recruiters,id"];
-			$this->col[] = ["label"=>"Created At","name"=>"created_at"];
-			$this->col[] = ["label"=>"Updated At","name"=>"updated_at"];
+			$this->col[] = ["label"=>"User Id","name"=>"user_id"];
 			$this->col[] = ["label"=>"Job Title","name"=>"job_title"];
 			$this->col[] = ["label"=>"Job Type","name"=>"job_type"];
-			$this->col[] = ["label"=>"Designation","name"=>"designation"];
+			$this->col[] = ["label"=>"Designation","name"=>"designation","join"=>"designations,name"];
 			$this->col[] = ["label"=>"Qualification","name"=>"qualification"];
 			$this->col[] = ["label"=>"Job Location","name"=>"job_location"];
 			$this->col[] = ["label"=>"Experience","name"=>"experience"];
@@ -42,8 +40,8 @@
 			$this->col[] = ["label"=>"Job Description","name"=>"job_description"];
 			$this->col[] = ["label"=>"Job Condition","name"=>"job_condition"];
 			$this->col[] = ["label"=>"Salary","name"=>"salary"];
-			$this->col[] = ["label"=>"Last Date_for_application","name"=>"last_date_for_application"];
-			$this->col[] = ["label"=>"Number Of_vacanies","name"=>"number_of_vacanies"];
+			$this->col[] = ["label"=>"Last Date for_application","name"=>"last_date_for_application"];
+			$this->col[] = ["label"=>"Number Of vacanies","name"=>"number_of_vacanies"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
@@ -51,7 +49,19 @@
 			$this->form[] = array (
   'style' => '',
   'help' => '',
-  'placeholder' => 'Enter Job Type',
+  'placeholder' => '',
+  'readonly' => '',
+  'disabled' => '',
+  'label' => 'User Id',
+  'name' => 'user_id',
+  'type' => 'text',
+  'validation' => 'required|integer|min:0',
+  'width' => 'col-sm-10',
+);
+			$this->form[] = array (
+  'style' => '',
+  'help' => '',
+  'placeholder' => '',
   'readonly' => '',
   'disabled' => '',
   'label' => 'Job Title',
@@ -61,24 +71,28 @@
   'width' => 'col-sm-10',
 );
 			$this->form[] = array (
-  'dataenum' => 'Full Time;Part Time;Internship',
-  'style' => '',
-  'help' => '',
-  'label' => 'Job Type',
-  'name' => 'job_type',
-  'type' => 'radio',
-  'validation' => 'required|min:3|max:255',
-  'width' => 'col-sm-10',
-);
-			$this->form[] = array (
   'style' => '',
   'help' => '',
   'placeholder' => '',
   'readonly' => '',
   'disabled' => '',
+  'label' => 'Job Type',
+  'name' => 'job_type',
+  'type' => 'text',
+  'validation' => 'required|min:3|max:255',
+  'width' => 'col-sm-10',
+);
+			$this->form[] = array (
+  'dataenum' => '',
+  'datatable' => '',
+  'style' => '',
+  'help' => '',
+  'datatable_where' => '',
+  'datatable_format' => '',
+  'datatable_exception' => '',
   'label' => 'Designation',
   'name' => 'designation',
-  'type' => 'text',
+  'type' => 'select2',
   'validation' => 'required|min:3|max:255',
   'width' => 'col-sm-10',
 );
@@ -139,7 +153,7 @@
   'label' => 'Job Description',
   'name' => 'job_description',
   'type' => 'textarea',
-  'validation' => 'required|min:3|max:255',
+  'validation' => 'required|min:3|',
   'width' => 'col-sm-10',
 );
 			$this->form[] = array (
@@ -151,7 +165,7 @@
   'label' => 'Job Condition',
   'name' => 'job_condition',
   'type' => 'textarea',
-  'validation' => 'required|min:3|max:255',
+  'validation' => 'required|min:3',
   'width' => 'col-sm-10',
 );
 			$this->form[] = array (
@@ -174,7 +188,7 @@
   'disabled' => '',
   'label' => 'Last Date For Application',
   'name' => 'last_date_for_application',
-  'type' => 'date',
+  'type' => 'text',
   'validation' => 'required|min:3|max:255',
   'width' => 'col-sm-10',
 );
@@ -187,7 +201,7 @@
   'label' => 'Number Of Vacanies',
   'name' => 'number_of_vacanies',
   'type' => 'text',
-  'validation' => 'required|min:3|max:255',
+  'validation' => 'required|min:1|max:255',
   'width' => 'col-sm-10',
 );
 			# END FORM DO NOT REMOVE THIS LINE

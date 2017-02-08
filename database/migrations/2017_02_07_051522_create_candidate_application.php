@@ -22,7 +22,7 @@ class CreateCandidateApplication extends Migration
             $table->string('preferred_location');
             $table->string('industry');
             $table->string('functional_area');
-            $table->string('role');
+            $table->string('designation');
             $table->date('date_of_birth');
             $table->string('gender');
             $table->string('key_skills');

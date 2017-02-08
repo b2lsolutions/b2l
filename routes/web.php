@@ -46,3 +46,5 @@ Route::group(['prefix' => 'recruiter'], function () {
   Route::get('/password/reset', 'RecruiterAuth\ForgotPasswordController@showLinkRequestForm');
   Route::get('/password/reset/{token}', 'RecruiterAuth\ResetPasswordController@showResetForm');
 });
+
+Route::resource('jobposts', 'JobpostsController');
