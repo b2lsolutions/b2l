@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.index');
 });
 
 Auth::routes();
@@ -47,4 +47,4 @@ Route::group(['prefix' => 'recruiter'], function () {
   Route::get('/password/reset/{token}', 'RecruiterAuth\ResetPasswordController@showResetForm');
 });
 
-Route::resource('jobposts', 'JobpostsController');
+Route::get('job/create', 'JobpostsController@create');

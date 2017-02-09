@@ -1,1 +1,5 @@
-<h1>hello</h1>
+@extends('main')
+
+@section('content')
+   <h1>jobpost</h1>
+@endsection
