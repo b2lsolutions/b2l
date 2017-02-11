@@ -8,7 +8,7 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in as Recruiter!
+                    You are logged in as {{Auth::user()->id}}!
                 </div>
             </div>
         </div>

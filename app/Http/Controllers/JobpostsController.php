@@ -14,7 +14,9 @@ class JobpostsController extends Controller
      */
     public function index()
     {
-        //
+        $jobposts = jobposts::all();
+
+        return $jobposts;
     }
 
     /**
@@ -44,15 +46,15 @@ class JobpostsController extends Controller
                 'job_location' => 'required',
                 'experience' => 'required',
                 'skills' => 'required',
-                'job_description' => 'required',
-                'job_condition' => 'required',
+                'job_description' => 'required|max:1024',
+                'job_condition' => 'required|max:1024',
                 'salary' => 'required',
                 'last_date_for_application' => 'required',
                 'number_of_vacanies' => 'required', 
 
                 ));
         //store the date
-          $jobposts = new jobposts;
+          /*$jobposts = new jobposts;
 
           $jobposts->job_title = $request->job_title;
           $jobposts->job_type = $request->job_type;
@@ -67,7 +69,12 @@ class JobpostsController extends Controller
           $jobposts->last_date_for_application = $request->last_date_for_application;
           $jobposts->number_of_vacanies = $request->number_of_vacanies;
         //redirect to another page
-          return redirect()->route('post.show',$jobposts->id);
+          return redirect()->route('post.show',$jobposts->id); */
+
+          $jobposts = new Jobposts;
+          Jobposts::create($request->all());
+
+
     }
 
     /**

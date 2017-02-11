@@ -179,10 +179,12 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Barryvdh\DomPDF\ServiceProvider::class,
-Maatwebsite\Excel\ExcelServiceProvider::class,
-Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
-Intervention\Image\ImageServiceProvider::class,
-crocodicstudio\crudbooster\CRUDBoosterServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+        Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+        crocodicstudio\crudbooster\CRUDBoosterServiceProvider::class,
+
+        Collective\Html\HtmlServiceProvider::class,
 
     ],
 
@@ -233,9 +235,11 @@ crocodicstudio\crudbooster\CRUDBoosterServiceProvider::class,
         'View' => Illuminate\Support\Facades\View::class,
 
         'PDF' => Barryvdh\DomPDF\Facade::class,
-'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-'Image' => Intervention\Image\Facades\Image::class,
-'CRUDBooster' => crocodicstudio\crudbooster\helpers\CRUDBooster::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Image' => Intervention\Image\Facades\Image::class,
+        'CRUDBooster' => crocodicstudio\crudbooster\helpers\CRUDBooster::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 
