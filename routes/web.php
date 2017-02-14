@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+//Route::get('/home', 'HomeController@index');
 
 Route::group(['prefix' => 'candidate'], function () {
   Route::get('/login', 'CandidateAuth\LoginController@showLoginForm');

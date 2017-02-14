@@ -1,10 +1,10 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="container-fluid homecontainer">
-<div class="container">
+
+<div class="container col-lg-8 col-md-8">
 <h1>ds</h1>
-<div class="col col-lg-2">hello</div>
+<div class="col col-lg-2">{{ Auth::guard('recruiter')->user()->id}}</div>
 <div class="maincontainer form-group col-12 col-md-auto">{!! Form::open(array('url' => route('jobposts.store') ,'class' => 'form','method' =>'POST')) !!}
    {!! Form::label('job_title', 'Job Title')!!}
    {!! Form::text('job_title', null, ['class' => 'form-control']) !!}
@@ -40,14 +40,14 @@
    {!! Form::label('last_date_for_application','Last Date For Application') !!}
    {!! Form::Date('last_date_for_application',null, ['class' => 'form-control']) !!}
    <br/>
+   <input type="hidden" name="user_id" value="{{ Auth::guard('recruiter')->user()->id }}">
    {!! Form::label('number_of_vacanies','Number Of Vacanies') !!}
    {!! Form::text('number_of_vacanies',null, ['class' => 'form-control']) !!}
 
    {!!Form::token()!!}
    <br/>
-   {!! Form::submit('Save', array('class'=>'btn btn-success')) !!}
+   {!! Form::submit('Save', array('class'=>'btn btn-success pull-right')) !!}
     {!! Form::close() !!}</div></div>
-</div>
 </div>
 
 

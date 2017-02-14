@@ -13,9 +13,9 @@ class CreateJobpostTables extends Migration
      */
     public function up()
     {
-        Schema::create('jobpost', function (Blueprint $table) {
+        Schema::create('jobposts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->nullable();
+            $table->integer('user_id')->unsigned()->nullable();
             $table->timestamps();
             $table->string('job_title',100);
             $table->string('job_type');

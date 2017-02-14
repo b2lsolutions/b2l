@@ -13,7 +13,7 @@ class AddDesignationIdToJobpost extends Migration
      */
     public function up()
     {
-        Schema::table('jobpost', function (Blueprint $table) {
+        Schema::table('jobposts', function (Blueprint $table) {
             $table->integer('designation_id')->nullable()->unsigned();
             //$table->foreign('designation_id')->references('id')->on('designation');
         });
@@ -26,8 +26,8 @@ class AddDesignationIdToJobpost extends Migration
      */
     public function down()
     {
-        Schema::table('jobpost', function (Blueprint $table) {
-            $table->dropColumn('designation_id');
-        });
+        //Schema::table('jobposts', function (Blueprint $table) {
+        //    $table->dropColumn('designation_id');
+        //});
     }
 }
