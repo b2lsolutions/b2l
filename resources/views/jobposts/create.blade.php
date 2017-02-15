@@ -2,10 +2,7 @@
 
 @section('content')
 
-<div class="container col-lg-8 col-md-8">
-<h1>ds</h1>
-<div class="col col-lg-2">{{ Auth::guard('recruiter')->user()->id}}</div>
-<div class="maincontainer form-group col-12 col-md-auto">{!! Form::open(array('url' => route('jobposts.store') ,'class' => 'form','method' =>'POST')) !!}
+{!! Form::open(array('url' => route('jobposts.store') ,'class' => 'form','method' =>'POST')) !!}
    {!! Form::label('job_title', 'Job Title')!!}
    {!! Form::text('job_title', null, ['class' => 'form-control']) !!}
    <br/>
