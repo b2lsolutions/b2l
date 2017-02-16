@@ -85,7 +85,9 @@ class JobpostsController extends Controller
      */
     public function show($id)
     {
-        //
+        $jobposts = jobposts::find($id);
+
+        return View::make('jobposts.show') -> with('jobposts', $jobposts);
     }
 
     /**

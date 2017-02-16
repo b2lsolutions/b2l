@@ -48,3 +48,9 @@ Route::group(['prefix' => 'recruiter'], function () {
 });
 
 Route::resource('jobposts', 'JobpostsController');
+
+Route::group(['prefix' => 'jobs'], function (){
+  Route::get('/', 'JobpostsController@index');
+  Route::get('/post', 'JobpostsController@create');
+  Route::get('/{$id}', 'JobpostsController@show');
+});

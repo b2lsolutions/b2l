@@ -1,7 +1,7 @@
-@extends('layouts.main')
+@extends('layouts.page')
 
 @section('content')
 
-<h1>hello jobs</h1>
+{{'$jobspost'}}
 
 @endsection
