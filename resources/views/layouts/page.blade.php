@@ -9,7 +9,7 @@
 	hello1
 </div>
 
-<div class="container col-lg-6 col-md-6 maincontainer">
+<div class="container col-lg-8 col-md-8 maincontainer-page pull-right	">
 
 @yield('content')
 

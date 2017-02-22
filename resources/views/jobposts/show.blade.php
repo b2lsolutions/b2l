@@ -2,6 +2,7 @@
 
 @section('content')
 
-{{'$jobspost'}}
-
+<div class="row container">
+	{{ $jobposts->job_title}}
+</div>
 @endsection

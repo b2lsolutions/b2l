@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\jobposts;
+use View;
 
 class JobpostsController extends Controller
 {
@@ -16,7 +17,7 @@ class JobpostsController extends Controller
     {
         $jobposts = jobposts::all();
 
-        return $jobposts;
+        return View::make('Jobposts.index',['$jobposts' => 'jobposts']);
     }
 
     /**
@@ -87,7 +88,7 @@ class JobpostsController extends Controller
     {
         $jobposts = jobposts::find($id);
 
-        return View::make('jobposts.show') -> with('jobposts', $jobposts);
+        return View ('jobposts.show') -> with('jobposts', $hello);
     }
 
     /**
