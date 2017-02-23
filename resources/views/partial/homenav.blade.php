@@ -1,5 +1,5 @@
 <div class="row">
-<nav class="[ navbar navbar-fixed-top ][ navbar-bootsnipp animate ]" role="navigation">
+<nav class="[ navbar navbar-static-top ][ navbar-bootsnipp animate ]" role="navigation">
       <div class="[ container ]">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="[ navbar-header ]">
@@ -30,7 +30,7 @@
           </li>
           <li><a href="#" class="[ animate ]">About</a></li>
           <li>
-            <a href="#" class="[ dropdown-toggle ][ animate ]" data-toggle="dropdown">Resources <span class="[ caret ]"></span></a>
+            <a href="#" class="[ dropdown-toggle ][ animate ]" data-toggle="dropdown">Solutions <span class="[ caret ]"></span></a>
             <ul class="[ dropdown-menu ]" role="menu">
               <li><a href="#" class="[ animate ]">Blog <span class="[ pull-right glyphicon glyphicon-pencil ]"></span></a></li>
               <li><a href="#" class="[ animate ]">List of resources <span class="[ pull-right glyphicon glyphicon-align-justify ]"></span></a></li>
